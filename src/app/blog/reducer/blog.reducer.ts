@@ -4,15 +4,15 @@ import * as BlogActions from './../actions/blog.actions';
 
 export type Action = BlogActions.ALL;
 
-const defaultState: BlogPost[] = [{
+const defaultState: BlogPost = {
     id: 1,
     text: 'Hello I am default',
     likes: 0,
     timestamp: new Date(),
     isSelected: ''
-}];
+};
 
-export function blogReducer(state: BlogPost[] = defaultState, action: Action) {
+export function blogReducer(state: BlogPost[] = [defaultState], action: Action) {
 
     switch (action.type) {
 
@@ -47,7 +47,7 @@ export function blogReducer(state: BlogPost[] = defaultState, action: Action) {
 
         case BlogActions.DELETE:
            const index = state.indexOf(action.payload);
-           state.splice(index);
+           state.splice(index, 1);
            return state;
 
         default:
