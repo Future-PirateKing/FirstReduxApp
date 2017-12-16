@@ -13,31 +13,27 @@
 </div>
 
 <div class="row">
-  <div class="col s6">
+  <div class="col s12">
     <h5 class="center">Post List:</h5>
-  </div>
-  <div class="col s6">
-    <h5 class="center">Post discription:</h5>
   </div>
 </div>
 
 <div id="post-area" class="row">
-  <div class="col s6">
+  <div class="col s12">
     <div [ngClass]="{'shadow': b.id == b.isSelected}" id="{{'post' + b.id}}" class="post-card card white" *ngFor="let b of blog$ | async">
       <a id="content" (click)="view_selected(b)">
         <span class="secondary-content grey-text text-lighten-1">{{b.timestamp | date:'mediumTime'}}</span>
         <p class="center black-text">{{b.text}}</p>
       </a>
-      <div id="likes" class="col s12">
+      <div id="likes" class="col s4">
         <a class="valign-wrapper" (click)="like(b)"><i class="material-icons pink-text">favorite</i><span class="black-text">Like</span></a>
         <a class="valign-wrapper" (click)="dislike(b)"><i class="material-icons black-text">favorite_border</i><span class="black-text">Dislike</span></a>
         <span>Likes: {{b.likes}}</span>
       </div>
+      <div class="col s2 push-s6">
+        <a (click)="delete(b)" class="right valign-wrapper"><i class="material-icons black-text">delete</i><span class="black-text">delete</span></a>
+        <a (click)="update(b)" class="valign-wrapper"><i class="material-icons black-text">mode_edit</i><span class="black-text">edit</span></a>
+      </div>
     </div>
   </div>
-  <div class="col s6 pad">
-    <div class="card white small">
-
-    </div>
-  </div>
-</div>
+ </div>

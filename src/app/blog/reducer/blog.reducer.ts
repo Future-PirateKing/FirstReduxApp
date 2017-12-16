@@ -45,6 +45,11 @@ export function blogReducer(state: BlogPost[] = defaultState, action: Action) {
             });
             return state;
 
+        case BlogActions.DELETE:
+           const index = state.indexOf(action.payload);
+           state.splice(index);
+           return state;
+
         default:
             return state;
 

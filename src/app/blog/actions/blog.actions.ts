@@ -4,6 +4,8 @@ export const UPVOTE = '[BlogPost] Upvote';
 export const DOWNVOTE = '[BlogPost] Downvote';
 export const ADD = '[BlogPost] Add';
 export const SELECTED = '[BlogPost] Selected';
+export const UPDATE = '[BlogPost] Update';
+export const DELETE = '[BlogPost] Delete';
 
 export class Add implements Action {
     readonly type = ADD;
@@ -29,8 +31,22 @@ export class Selected implements Action {
     constructor(public payload: number) {}
 }
 
+export class Update implements Action {
+    readonly type = UPDATE;
+
+    constructor (public payload: any) {}
+}
+
+export class Delete implements Action {
+    readonly type = DELETE;
+
+    constructor (public payload: any) {}
+}
+
 export type ALL
     = Upvote
     | Add
     | Downvote
-    | Selected;
+    | Selected
+    | Update
+    | Delete;

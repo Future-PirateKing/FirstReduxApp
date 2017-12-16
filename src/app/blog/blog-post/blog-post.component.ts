@@ -43,4 +43,12 @@ export class BlogPostComponent implements OnInit {
     this.store.dispatch(new BlogActions.Selected(b.id));
   }
 
+  delete(b) {
+    this.store.dispatch(new BlogActions.Delete(b));
+  }
+
+  update(b) {
+    this.store.dispatch(new BlogActions.Update(b));
+  }
+
 }
