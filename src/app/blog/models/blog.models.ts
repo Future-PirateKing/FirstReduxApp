@@ -3,4 +3,5 @@ export interface BlogPost {
     text: string;
     likes: number;
     timestamp: Date;
+    isSelected: string;
 }

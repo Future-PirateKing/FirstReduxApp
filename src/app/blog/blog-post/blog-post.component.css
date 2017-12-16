@@ -1,9 +1,5 @@
-.fixed {
-    position: fixed;
-    top: 45.5%;
-    transform: translateY(-50%);
-    height: 400px;
-    width: 95%;
+.shadow {
+    box-shadow: 4px 24px 20px silver;
 }
 
 #post-area{
@@ -23,7 +19,7 @@
     transform: translateX(-50%);
 }
 
-#post-card {
+.post-card {
     height: auto;
     min-height: 105px;
 }

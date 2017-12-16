@@ -8,7 +8,8 @@ const defaultState: BlogPost[] = [{
     id: 1,
     text: 'Hello I am default',
     likes: 0,
-    timestamp: new Date()
+    timestamp: new Date(),
+    isSelected: ''
 }];
 
 export function blogReducer(state: BlogPost[] = defaultState, action: Action) {
@@ -20,7 +21,8 @@ export function blogReducer(state: BlogPost[] = defaultState, action: Action) {
                 id: state.length + 1,
                 text: action.payload,
                 timestamp: new Date(),
-                likes: 0
+                likes: 0,
+                isSelected: ''
             });
             return state.concat(blog);
 
@@ -35,10 +37,16 @@ export function blogReducer(state: BlogPost[] = defaultState, action: Action) {
             state[state.indexOf(action.payload)] = Object.assign({}, state[state.indexOf(action.payload)],
             {likes: state[state.indexOf(action.payload)].likes - 1}
             );
+            return state;
 
+        case BlogActions.SELECTED:
+            state.forEach(s => {
+                s.isSelected = '' + action.payload;
+            });
             return state;
 
         default:
             return state;
+
     }
 }

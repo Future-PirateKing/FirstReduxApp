@@ -3,6 +3,7 @@ import { Action } from '@ngrx/store';
 export const UPVOTE = '[BlogPost] Upvote';
 export const DOWNVOTE = '[BlogPost] Downvote';
 export const ADD = '[BlogPost] Add';
+export const SELECTED = '[BlogPost] Selected';
 
 export class Add implements Action {
     readonly type = ADD;
@@ -22,7 +23,14 @@ export class Downvote implements Action {
     constructor (public payload: any) {}
 }
 
+export class Selected implements Action {
+    readonly type = SELECTED;
+
+    constructor(public payload: number) {}
+}
+
 export type ALL
     = Upvote
     | Add
-    | Downvote;
+    | Downvote
+    | Selected;

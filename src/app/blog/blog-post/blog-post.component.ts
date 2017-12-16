@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as BlogActions from './../actions/blog.actions';
+declare var jQuery;
 
 interface AppState {
   blog: BlogPost[];
@@ -36,6 +37,10 @@ export class BlogPostComponent implements OnInit {
 
   dislike(b) {
     this.store.dispatch(new BlogActions.Downvote(b));
+  }
+
+  view_selected (b) {
+    this.store.dispatch(new BlogActions.Selected(b.id));
   }
 
 }

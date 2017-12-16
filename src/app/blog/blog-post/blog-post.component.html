@@ -12,10 +12,19 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col s6">
+    <h5 class="center">Post List:</h5>
+  </div>
+  <div class="col s6">
+    <h5 class="center">Post discription:</h5>
+  </div>
+</div>
+
 <div id="post-area" class="row">
   <div class="col s6">
-    <div id="post-card" class="card white" *ngFor="let b of blog$ | async">
-      <a id="content" class="waves-effect">
+    <div [ngClass]="{'shadow': b.id == b.isSelected}" id="{{'post' + b.id}}" class="post-card card white" *ngFor="let b of blog$ | async">
+      <a id="content" (click)="view_selected(b)">
         <span class="secondary-content grey-text text-lighten-1">{{b.timestamp | date:'mediumTime'}}</span>
         <p class="center black-text">{{b.text}}</p>
       </a>
