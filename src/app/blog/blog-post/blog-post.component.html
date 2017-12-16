@@ -30,9 +30,16 @@
         <a class="valign-wrapper" (click)="dislike(b)"><i class="material-icons black-text">favorite_border</i><span class="black-text">Dislike</span></a>
         <span>Likes: {{b.likes}}</span>
       </div>
-      <div class="col s2 push-s6">
+      <div class="col s6 fixed z-depth-5 grey-lighten-3" *ngIf="openEdit && selected === b.id">
+        <form (ngSubmit)=update(b) class="valign-wrapper">
+          <div class="input-field col s12">
+            <input id="update_text" type="text" name="update_text" [(ngModel)]="update_text" placeholder="Update Post Please enter to submit">
+          </div>
+        </form>
+      </div>
+      <div class="col s2 right">
         <a (click)="delete(b)" class="right valign-wrapper"><i class="material-icons black-text">delete</i><span class="black-text">delete</span></a>
-        <a (click)="update(b)" class="valign-wrapper"><i class="material-icons black-text">mode_edit</i><span class="black-text">edit</span></a>
+        <a (click)="open_update(b)" class="valign-wrapper"><i class="material-icons black-text">mode_edit</i><span class="black-text">edit</span></a>
       </div>
     </div>
   </div>

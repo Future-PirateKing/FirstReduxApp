@@ -50,6 +50,12 @@ export function blogReducer(state: BlogPost[] = [defaultState], action: Action) 
            state.splice(index, 1);
            return state;
 
+        case BlogActions.UPDATE:
+           state[state.indexOf(action.payload.post)] = Object.assign({}, state[state.indexOf(action.payload.post)],
+                {text: action.payload.text}
+           );
+           return state;
+
         default:
             return state;
 

@@ -18,6 +18,9 @@ export class BlogPostComponent implements OnInit {
 
   text: string;
   blog$: Observable<BlogPost[]>;
+  openEdit: boolean;
+  update_text: string;
+  selected: string;
 
   constructor(public store: Store<AppState>) {
     this.blog$ = this.store.select('blog');
@@ -47,8 +50,15 @@ export class BlogPostComponent implements OnInit {
     this.store.dispatch(new BlogActions.Delete(b));
   }
 
+  open_update(b) {
+    this.openEdit = this.openEdit === true ? false : true;
+    this.selected = b.id;
+  }
+
   update(b) {
-    this.store.dispatch(new BlogActions.Update(b));
+    this.store.dispatch(new BlogActions.Update({text: this.update_text, post: b}));
+    this.update_text = '';
+    this.openEdit = false;
   }
 
 }
