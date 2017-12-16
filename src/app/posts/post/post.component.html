@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="center">Posts</h3>
+  <div class="card small" *ngIf="post$ | async as post">
+    <div class="row">
+      <div class="col s12">
+        <span class="black-text col s12">{{ post.text }}</span>
+        <h6 class="col s12">Likes: {{post.likes}}</h6>
+        <button class="btn waves-effect" (click)="upvote()">Up vote</button>
+        <button class="btn waves-effect" (click)="downvote()">Down vote</button>
+        <button class="btn waves-effect" (click)="reset()">Reset</button>
+      </div>
+      <div class="col s6">
+        <input type="text" placeholder="Post" [(ngModel)]="text">
+      </div>
+      <div class="col s7">
+        <button class="btn waves-effect" (click)="edit()">Post</button>
+      </div>
+    </div>
+  </div>
+</div>

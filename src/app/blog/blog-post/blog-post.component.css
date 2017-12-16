@@ -1,0 +1,45 @@
+.fixed {
+    position: fixed;
+    top: 45.5%;
+    transform: translateY(-50%);
+    height: 400px;
+    width: 95%;
+}
+
+#post-area{
+    padding-bottom: 100px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+#post-btn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#post-card {
+    height: auto;
+    min-height: 105px;
+}
+
+#content {
+    display: block;
+    height: auto;
+    min-height: 80px;
+    padding: 10px;
+}
+
+a{
+    cursor: pointer;
+}
+
+#likes {
+    display: flex;
+    justify-content: space-between
+}

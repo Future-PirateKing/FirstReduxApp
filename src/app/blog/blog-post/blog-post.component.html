@@ -1,0 +1,34 @@
+<div class="footer z-depth-5 grey lighten-4">
+  <div class="row">
+    <form (ngSubmit)="post()" class="valign-wrapper">
+      <div class="input-field col s10">
+        <input type="text" id="post" name="post" [(ngModel)]="text">
+        <label for="post">Post</label>
+      </div>
+      <div class="col s2">
+        <button id="post-btn" class="btn waves-effect" type="submit">Post</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="post-area" class="row">
+  <div class="col s6">
+    <div id="post-card" class="card white" *ngFor="let b of blog$ | async">
+      <a id="content" class="waves-effect">
+        <span class="secondary-content grey-text text-lighten-1">{{b.timestamp | date:'mediumTime'}}</span>
+        <p class="center black-text">{{b.text}}</p>
+      </a>
+      <div id="likes" class="col s12">
+        <a class="valign-wrapper" (click)="like(b)"><i class="material-icons pink-text">favorite</i><span class="black-text">Like</span></a>
+        <a class="valign-wrapper" (click)="dislike(b)"><i class="material-icons black-text">favorite_border</i><span class="black-text">Dislike</span></a>
+        <span>Likes: {{b.likes}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col s6 pad">
+    <div class="card white small">
+
+    </div>
+  </div>
+</div>
